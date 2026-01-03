@@ -9,7 +9,7 @@ POSH=agnoster
 # ZSH_THEME=robbyrussell
 
 # -----------------------------------------------------
-# oh-my-zsh plugins
+# oh-myzsh plugins
 # -----------------------------------------------------
 plugins=(
     git
@@ -33,7 +33,7 @@ source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
 
 # zsh history
-HISTFILE=~/.zsh_history
+HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory

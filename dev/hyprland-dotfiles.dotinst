@@ -6,7 +6,7 @@
 	"author": "Stephan Raabe",
 	"homepage": "https://mylinuxforwork.github.io/dotfiles/",
 	"dependencies": "https://mylinuxforwork.github.io/dotfiles/getting-started/dependencies",
-	"source": "Projects/dotfiles",
+	"source": "Documents/ml4w-dotfiles-dev",
 	"subfolder": "dotfiles",
 	"setupscript":"setup/setup.sh",
 	"restore":[
