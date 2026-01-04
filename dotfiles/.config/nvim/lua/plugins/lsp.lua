@@ -25,14 +25,15 @@ return {
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
+          local fzf = require 'fzf-lua'
           map('gta', vim.lsp.buf.code_action, '[G]o[t]o Code [A]ction', { 'n', 'x' })
-          map('gtr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-          map('gti', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-          map('gtd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          map('gtr', fzf.lsp_references, '[G]oto [R]eferences')
+          map('gti', fzf.lsp_implementations, '[G]oto [I]mplementation')
+          map('gtd', fzf.lsp_definitions, '[G]oto [D]efinition')
           map('gtD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-          map('gds', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
-          map('gws', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')
-          map('gtt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
+          map('gds', fzf.lsp_document_symbols, 'Open Document Symbols')
+          map('gws', fzf.lsp_live_workspace_symbols, 'Open Workspace Symbols')
+          map('gtt', fzf.lsp_typedefs, '[G]oto [T]ype Definition')
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client

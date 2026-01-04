@@ -2,6 +2,20 @@
 # AUTOSTART
 # -----------------------------------------------------
 
+# SSH Agent - Use persistent socket
+SSH_AGENT_SOCKET="$HOME/.ssh/agent"
+
+if [ ! -S "$SSH_AGENT_SOCKET" ]; then
+  ssh-agent -a "$SSH_AGENT_SOCKET" > /dev/null
+fi
+
+export SSH_AUTH_SOCK="$SSH_AGENT_SOCKET"
+
+# Add SSH key only on first agent creation (check if key is already loaded)
+if ! ssh-add -l &>/dev/null; then
+  ssh-add ~/.ssh/id_ed25519 2>/dev/null
+fi
+
 # -----------------------------------------------------
 # Fastfetch
 # -----------------------------------------------------
